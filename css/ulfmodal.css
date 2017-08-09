@@ -1,0 +1,115 @@
+/* flexing and put everything in the middle */
+.modal:target {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+/* hidding when not clicked */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+/*hack to get modal a little above middle of the screen  */
+.modal::before {
+    content: '';
+    flex: 1;
+}
+.modal::after {
+    content: '';
+    flex: 5;
+}
+
+/*body width is 50% by default  */
+.modal_body {
+    position: relative;
+    width: 50vw;
+    overflow-y: auto;
+}
+
+/*but can be bigger  */
+.modal_body_l {
+    position: relative;
+    width: 75vw;
+    overflow-y: auto;
+    padding: 4em 0 6em 0;
+}
+
+/* and bigger */
+.modal_body_xl {
+    position: relative;
+    width: 90vw;
+    overflow-y: auto;
+    padding: 4em 0 6em 0;
+}
+
+.modal_content {
+    position: relative;
+    background: #FFFFFF;
+    padding: 2.5em;
+    /*Flat is cool*/
+    border-radius: 0;
+}
+
+.modal_content p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.6em;
+    color: #444;
+}
+
+.modal_close_btn::before {
+    content: "";
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #2d3e50;
+}
+
+.modal_close {
+    content : "X";
+    position: absolute;
+    right: 1em;
+    top: .75em;
+    text-decoration: none;
+    font-size: 1.5em;
+    color: crimson;
+}
+
+
+/*MEDIA QUERIES SET ONLY on width */
+@media screen and (max-width: 1024px) {
+    .modal_body {
+        width: 70vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .modal_body {
+        width: 70vw;
+    }
+}
+@media screen and (max-width: 768px) {
+    .modal_body {
+        width: 80vw;
+    }
+}
+@media screen and (max-width: 425px) {
+    .modal_body {
+        width: 90vw;
+    }
+}
